@@ -6,7 +6,8 @@ import userRoutes from "./routes/userRoutes.js"
 import taskRoutes from "./routes/taskRoutes.js"
 
 dotenv.config()
-
+const MONGO_URI =
+"mongodb+srv://guyliba:g33g33g33@tasks.jdv0i1d.mongodb.net/?retryWrites=true&w=majority&appName=tasks"
 const app = express()
 app.use(cors())
 app.use(express.json())
@@ -15,7 +16,7 @@ app.use("/users", userRoutes)
 app.use("/tasks", taskRoutes)
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err))
 
